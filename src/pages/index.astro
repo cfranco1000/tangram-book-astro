@@ -1,0 +1,378 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import FeatureItem from "../components/FeatureItem.astro";
+
+import bgDesk from "../assets/bg-desk.jpg";
+import bookImg from "../assets/book.png";
+import cardsImg from "../assets/cards.png";
+import kindleImg from "../assets/kindle.png";
+import authorImg from "../assets/author.jpg";
+import parent1 from "../assets/parent1.jpg";
+import parent2 from "../assets/parent2.jpg";
+import parent3 from "../assets/parent3.jpg";
+---
+
+<BaseLayout>
+  <main
+    class="relative min-h-screen w-full bg-cover bg-top bg-no-repeat"
+    style={{ backgroundImage: `url(${bgDesk.src})` }}
+  >
+    <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-white/20 to-white/40" />
+
+    <!-- Sticky top CTA -->
+    <header class="fixed left-0 right-0 top-0 z-50 bg-cream/95 shadow-[0_10px_30px_-10px_rgba(60,40,20,0.25)] ring-1 ring-black/5 backdrop-blur">
+      <div class="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-8">
+        <p class="font-display text-sm font-bold text-ink sm:text-base">
+          Pronto para usar. Baixe agora{" "}
+          <span class="text-orange">→</span>
+        </p>
+        <a
+          href="https://a.co/d/082BQviD"
+          class="inline-flex shrink-0 items-center gap-2 rounded-xl bg-orange px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow transition hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-lg"
+        >
+          Quero meu e-book
+        </a>
+      </div>
+    </header>
+
+    <div class="relative mx-auto max-w-5xl px-4 pt-24 pb-10 sm:px-8 sm:pt-28 sm:pb-14">
+      <!-- HERO -->
+      <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur p-6 sm:p-10">
+        <div class="grid gap-8 sm:grid-cols-[1.15fr_1fr] sm:items-center">
+          <div>
+            <p class="text-xs font-semibold tracking-[0.35em] text-ink/70">
+              E B O O K
+            </p>
+            <h1 class="mt-3 font-display text-5xl leading-[1.02] tracking-tight text-ink sm:text-6xl">
+              Atividades<br />
+              Terapêuticas<br />
+              com <span class="text-orange">Tangram</span>
+            </h1>
+            <div class="mt-4 flex items-center gap-3">
+              <span class="h-px w-10 bg-ink/40" />
+              <p class="font-display italic text-ink/80">
+                Formas que estimulam a criatividade.
+              </p>
+            </div>
+            <p class="mt-6 max-w-md text-[15px] leading-relaxed text-ink/80">
+              Um material completo, prático e terapêutico para transformar
+              aprendizados em experiências significativas.
+            </p>
+            <p class="mt-4 max-w-md font-semibold text-ink">
+              Ideal para terapeutas, professores, pais e cuidadores.
+            </p>
+          </div>
+
+          <div class="relative flex flex-col items-center justify-center">
+            <a
+              href="https://a.co/d/082BQviD"
+              class="mb-6 inline-flex items-center gap-2 rounded-2xl bg-orange px-7 py-4 text-sm font-bold uppercase tracking-wide text-white shadow transition hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-lg sm:text-base"
+            >
+              Comprar agora
+            </a>
+            <img
+              src={bookImg.src}
+              alt="Capa do e-book Atividades Terapêuticas com Tangram"
+              width={912}
+              height={1104}
+              class="w-full max-w-[340px] drop-shadow-[0_25px_35px_rgba(0,0,0,0.25)]"
+            />
+            <div class="absolute -right-2 -bottom-2 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-teal text-center text-[10px] font-bold leading-tight text-teal-foreground shadow-lg sm:h-28 sm:w-28 sm:text-[11px]">
+              <div class="-mt-3 sm:-mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24" height="24" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                  class="mb-1 h-4 w-4 mx-auto"
+                >
+                  <path d="M12 15V3" />
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <path d="m7 10 5 5 5-5" />
+                </svg>
+                RECURSO<br />LÚDICO,<br />CRIATIVO E<br />TERAPÊUTICO!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews pill -->
+        <div class="mt-8 flex justify-center">
+          <div class="flex items-center gap-3 rounded-full bg-white/95 px-4 py-2 shadow-[0_10px_30px_-10px_rgba(60,40,20,0.35)] ring-1 ring-black/5">
+            <div class="flex -space-x-2">
+              {[parent1, parent2, parent3].map((img) => (
+                <img
+                  src={img.src}
+                  alt=""
+                  loading="lazy"
+                  class="h-9 w-9 rounded-full border-2 border-white object-cover"
+                />
+              ))}
+            </div>
+            <div class="flex flex-col leading-tight">
+              <div class="flex items-center gap-0.5 text-orange">
+                {Array.from({ length: 5 }).map(() => (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor" stroke="none"
+                    class="h-3.5 w-3.5"
+                  >
+                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+                  </svg>
+                ))}
+              </div>
+              <span class="text-xs font-semibold text-ink">
+                4.9/5 · avaliações
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+      <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur mt-8 overflow-hidden">
+        <SectionHeader>O QUE VOCÊ ENCONTRA NESTE E-BOOK:</SectionHeader>
+        <div class="grid gap-6 p-6 sm:grid-cols-4 sm:gap-4 sm:p-8">
+          <FeatureItem
+            iconBg="bg-teal"
+            title="ATIVIDADES PARA DIVERSAS HABILIDADES"
+            text="Cognição, emoções, coordenação motora, linguagem e sociais."
+          >
+            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7">
+              <path d="M12 18V5" />
+              <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" />
+              <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" />
+              <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" />
+              <path d="M18 18a4 4 0 0 0 2-7.464" />
+              <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" />
+              <path d="M6 18a4 4 0 0 1-2-7.464" />
+              <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" />
+            </svg>
+          </FeatureItem>
+          <FeatureItem
+            iconBg="bg-orange"
+            title="ESTRATÉGIAS PRÁTICAS E TERAPÊUTICAS"
+            text="Orientações claras e aplicáveis para diferentes objetivos e faixas etárias."
+          >
+            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7">
+              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+              <path d="M9 18h6" />
+              <path d="M10 22h4" />
+            </svg>
+          </FeatureItem>
+          <FeatureItem
+            iconBg="bg-purple"
+            title="PARA DIVERSAS ÁREAS"
+            text="Psicologia, fonoaudiologia, psicopedagogia, terapia ocupacional, educação e muito mais."
+          >
+            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <circle cx="9" cy="7" r="4" />
+            </svg>
+          </FeatureItem>
+          <FeatureItem
+            iconBg="bg-teal"
+            title="ORGANIZADO, DIDÁTICO E PRONTO PARA USAR!"
+            text="Economize tempo com um material feito com muito cuidado."
+          >
+            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7">
+              <path d="M12 7v14" />
+              <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+            </svg>
+          </FeatureItem>
+        </div>
+      </div>
+
+      <!-- CARDS + ACTIVITIES -->
+      <div class="mt-8 grid gap-8 sm:grid-cols-2">
+        <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur p-6 sm:p-7">
+          <div class="flex items-start gap-4">
+            <div class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-orange text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
+                <rect x="6" y="14" width="12" height="8" rx="1" />
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold leading-tight text-ink">
+              CARTAS DE FIGURAS<br />PARA IMPRIMIR!
+            </h3>
+          </div>
+          <div class="mt-5 grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
+            <div class="space-y-3 text-[15px] leading-relaxed text-ink/85">
+              <p>
+                Mais de 40 cartas com figuras para recortar e jogar como um
+                jogo de desafio.
+              </p>
+              <p>
+                Estimula o raciocínio, a percepção visual e a criatividade de
+                forma divertida!
+              </p>
+            </div>
+            <img
+              src={cardsImg.src}
+              alt="Cartas de figuras de Tangram"
+              width={800}
+              height={700}
+              loading="lazy"
+              class="w-40 sm:w-44"
+            />
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur p-6 sm:p-7">
+          <h3 class="font-display text-2xl font-bold text-ink">
+            ATIVIDADES QUE TRABALHAM:
+          </h3>
+          <ul class="mt-4 grid gap-3">
+            {
+              [
+                "Atenção e concentração",
+                "Raciocínio lógico",
+                "Percepção visual",
+                "Coordenação motora fina",
+                "Criatividade e imaginação",
+                "Resolução de problemas",
+                "Planejamento e organização",
+                "Habilidades socioemocionais",
+              ].map((item) => (
+                <li class="flex items-center gap-3 text-ink">
+                  <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-teal/10 text-teal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                  </span>
+                  <span class="font-medium">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <!-- DIGITAL + PURPLE CTA -->
+      <div class="mt-8 grid gap-8 sm:grid-cols-2">
+        <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur p-6 sm:p-7">
+          <div class="flex items-start gap-4">
+            <div class="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-teal text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+                <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+                <path d="M10 9H8" />
+                <path d="M16 13H8" />
+                <path d="M16 17H8" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-bold text-ink">
+                FORMATO DIGITAL
+              </h3>
+              <p class="mt-2 text-[15px] leading-relaxed text-ink/85">
+                Arquivo em PDF. Pronto para baixar e usar quando quiser!
+              </p>
+            </div>
+          </div>
+          <img
+            src={kindleImg.src}
+            alt="E-book exibido em um leitor digital Kindle"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            class="mt-4 w-full max-w-[240px] mx-auto"
+          />
+        </div>
+
+        <div class="rounded-2xl bg-purple p-7 text-purple-foreground shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8">
+            <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" />
+          </svg>
+          <h3 class="mt-3 font-display text-3xl font-bold leading-tight">
+            TRANSFORME<br />
+            APRENDIZADOS<br />
+            EM BEM-ESTAR!
+          </h3>
+          <p class="mt-4 text-[15px] leading-relaxed text-purple-foreground/90">
+            Um recurso versátil, acessível e cheio de possibilidades para
+            todas as idades.
+          </p>
+        </div>
+      </div>
+
+      <!-- AUTHOR -->
+      <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur mt-8 overflow-hidden">
+        <SectionHeader>SOBRE A AUTORA</SectionHeader>
+        <div class="grid gap-6 p-6 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-8 sm:p-8">
+          <img
+            src={authorImg.src}
+            alt="Retrato de Renata Soárez, fonoaudióloga e autora do livro"
+            width={512}
+            height={512}
+            loading="lazy"
+            class="mx-auto h-40 w-40 rounded-full object-cover shadow-lg ring-4 ring-teal/20 sm:h-48 sm:w-48"
+          />
+          <div>
+            <h3 class="font-display text-3xl font-bold text-ink">
+              Renata Soárez <span class="text-teal">— Fonoaudióloga</span>
+            </h3>
+            <p class="mt-4 text-[15px] leading-relaxed text-ink/85">
+              Eu me chamo Renata Soárez, sou fonoaudióloga. Escolhi essa
+              profissão pela capacidade que ela tem de ajudar pessoas a
+              evoluir em aspectos como fala, voz, deglutição, respiração e
+              comunicação.
+            </p>
+            <p class="mt-3 text-[15px] leading-relaxed text-ink/85">
+              Sempre fui apaixonada por criar recursos didáticos e manuais
+              para transmitir conhecimento de forma acessível. Transformar
+              essas ideias em materiais e levá-los a profissionais e famílias
+              é um sonho que estou realizando aos poucos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FINAL CTA -->
+      <div class="relative mt-10 overflow-hidden rounded-3xl bg-gradient-to-br from-orange via-orange to-[hsl(18_90%_50%)] p-8 text-white shadow-[0_30px_80px_-20px_rgba(220,90,30,0.6)] sm:p-12">
+        <div class="pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
+        <div class="pointer-events-none absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-purple/30 blur-2xl" />
+
+        <div class="relative text-center">
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] backdrop-blur">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="h-3.5 w-3.5">
+              <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+            </svg>
+            Adquira agora
+          </span>
+          <h3 class="mx-auto mt-5 max-w-2xl font-display text-4xl font-bold leading-[1.05] sm:text-5xl">
+            Invista em conhecimento.
+            <br />
+            <span class="italic text-cream">Transforme vidas.</span>
+          </h3>
+          <p class="mx-auto mt-4 max-w-xl text-base text-white/90 sm:text-lg">
+            Tenha um material completo na palma da mão e leve para a sua
+            prática um recurso lúdico, criativo e terapêutico.
+          </p>
+
+          <a
+            href="https://a.co/d/082BQviD"
+            class="mt-8 inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-5 text-base font-bold uppercase tracking-wide text-orange shadow-[0_15px_40px_-10px_rgba(0,0,0,0.35)] ring-4 ring-white/30 transition hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.45)] sm:text-lg"
+          >
+            Quero meu e-book agora
+          </a>
+
+          <p class="mt-4 text-xs font-medium text-white/80">
+            Compra segura via Amazon · Acesso imediato
+          </p>
+        </div>
+      </div>
+
+      <p class="mt-8 text-center text-xs text-ink/60">
+        © {new Date().getFullYear()} Renata Soárez · Aprender · Brincar · Cuidar
+      </p>
+    </div>
+  </main>
+</BaseLayout>

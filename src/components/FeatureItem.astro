@@ -1,0 +1,21 @@
+---
+export interface Props {
+  iconBg: string;
+  title: string;
+  text: string;
+}
+
+const { iconBg, title, text } = Astro.props;
+---
+
+<div class="text-center">
+  <div
+    class={`mx-auto grid h-14 w-14 place-items-center rounded-full ${iconBg} text-white shadow-md`}
+  >
+    <slot name="icon" />
+  </div>
+  <h3 class="mt-3 text-sm font-bold leading-snug tracking-wide text-ink sm:text-base">
+    {title}
+  </h3>
+  <p class="mt-2 text-sm leading-relaxed text-ink/75 sm:text-[15px]">{text}</p>
+</div>
