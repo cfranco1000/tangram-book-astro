@@ -16,7 +16,7 @@ import "@fontsource/montserrat/900.css";
 const {
   title = "Atividades Terapêuticas com Tangram — E-book de Renata Soárez",
   description = "E-book prático e terapêutico com atividades de Tangram para terapeutas, professores, pais e cuidadores. Estimule cognição, criatividade e bem-estar.",
-  ogImage = "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/dc832690-c921-429e-aaea-d5621e54277c",
+  ogImage = "https://tangram-ebook.vercel.app/og-image.jpg",
 } = Astro.props;
 ---
 
@@ -32,6 +32,7 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content="https://tangram-ebook.vercel.app/" />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:title" content={title} />
