@@ -1,0 +1,119 @@
+---
+import slider1 from "../assets/ref/slider-1.png";
+import slider2 from "../assets/ref/slider-2.png";
+import slider3 from "../assets/ref/slider-3.png";
+import slider4 from "../assets/ref/slider-4.png";
+import info1 from "../assets/ref/info-1.png";
+import info2 from "../assets/ref/info-2.png";
+import info3 from "../assets/ref/info-3.png";
+import info4 from "../assets/ref/info-4.png";
+
+const slides = [
+  { src: slider1.src, alt: "Pagina 1 do material" },
+  { src: slider2.src, alt: "Pagina 2 do material" },
+  { src: slider3.src, alt: "Pagina 3 do material" },
+  { src: slider4.src, alt: "Pagina 4 do material" },
+];
+
+const infographics = [
+  { src: info1.src, alt: "Infografico 1" },
+  { src: info2.src, alt: "Infografico 2" },
+  { src: info3.src, alt: "Infografico 3" },
+  { src: info4.src, alt: "Infografico 4" },
+];
+---
+
+<div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur mt-8 overflow-hidden">
+  <div class="bg-teal px-6 py-4 text-center">
+    <h2 class="font-display text-lg font-bold tracking-wide text-teal-foreground sm:text-xl">
+      VEJA O MATERIAL POR DENTRO
+    </h2>
+  </div>
+
+  <p class="px-6 pt-5 text-center text-[15px] leading-relaxed text-ink/70 sm:px-8">
+    Da abertura ao fechamento — tudo estruturado para você nunca perder o fio da sessão.
+  </p>
+
+  <!-- Top row: page mockups - auto-scrolling marquee -->
+  <div class="mt-5 mb-6 overflow-hidden">
+    <div class="marquee-group" data-gallery="top">
+      <div class="marquee-content">
+        {[...slides, ...slides, ...slides].map((slide, i) => (
+          <div class="marquee-item">
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              loading="lazy"
+              class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(60,40,20,0.3)] ring-1 ring-black/5"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom row: infographics - auto-scrolling marquee (reverse) -->
+  <div class="overflow-hidden px-4 pb-6 sm:px-8 sm:pb-8">
+    <div class="marquee-group marquee-reverse" data-gallery="bottom">
+      <div class="marquee-content">
+        {[...infographics, ...infographics, ...infographics].map((info, i) => (
+          <div class="marquee-item">
+            <img
+              src={info.src}
+              alt={info.alt}
+              loading="lazy"
+              class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(60,40,20,0.3)] ring-1 ring-black/5"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .marquee-group {
+    display: flex;
+    width: fit-content;
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 1rem;
+    animation: marquee 20s linear infinite;
+  }
+
+  .marquee-reverse .marquee-content {
+    animation-direction: reverse;
+  }
+
+  .marquee-group:hover .marquee-content {
+    animation-play-state: paused;
+  }
+
+  .marquee-item {
+    flex-shrink: 0;
+    width: 70vw;
+  }
+
+  @media (min-width: 640px) {
+    .marquee-item {
+      width: 45%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .marquee-item {
+      width: 23%;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+</style>

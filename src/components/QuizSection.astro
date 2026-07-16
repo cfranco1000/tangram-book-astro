@@ -1,0 +1,340 @@
+---
+const complaints = [
+  {
+    id: "autossabotagem",
+    title: "Autossabotagem e padrões que se repetem",
+    description: "Cliente que começa e não termina, destrói o que constrói",
+    label: "Protocolo 03 — Autossabotagem e Padrões Repetitivos",
+    text: "Este protocolo mapeia o mecanismo exato da autossabotagem — da superfície (o comportamento) até a raiz (a crença de origem). O cliente sai com uma âncora de interrupção do padrão.",
+  },
+  {
+    id: "ansiedade",
+    title: "Ansiedade paralisante",
+    description: "Cliente travado que sabe o que fazer mas não age",
+    label: "Protocolo 05 — Ansiedade e Medo Paralisante",
+    text: "Trabalha a origem do travamento e entrega uma ferramenta de regulação própria. Começa com respiração guiada e desce camada por camada até o medo de raiz.",
+  },
+  {
+    id: "abandono",
+    title: "Dependência emocional",
+    description: "Cliente que escolhe parceiros indisponíveis ou tem medo de ficar só",
+    label: "Protocolo 04 — Relacionamentos e Abandono",
+    text: "Acessa a ferida de abandono que cria o padrão de escolher parceiros indisponíveis. Um dos protocolos mais profundos — nível de intensidade alto.",
+  },
+  {
+    id: "financeiro",
+    title: "Bloqueio financeiro",
+    description: "Cliente que sabota ganhos, tem medo de cobrar, padrão de escassez",
+    label: "Protocolo 02 — Trauma Financeiro e Bloqueio de Prosperidade",
+    text: "Identifica a crença raiz do bloqueio — geralmente formada na infância. O cliente constrói uma nova relação com dinheiro baseada em merecimento, não em escassez.",
+  },
+];
+---
+
+<section class="quiz-section">
+  <div class="quiz-header">
+    <div class="quiz-icon-bounce"><img draggable="false" role="img" class="emoji" alt="🧠" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f9e0.svg" width="40" height="40"></div>
+    <h2 class="quiz-prompt">QUAL DESSAS QUEIXAS APARECE MAIS NOS SEUS ATENDIMENTOS?</h2>
+    <div class="quiz-cta-animated">
+      <span class="cursor-blink"><img draggable="false" role="img" class="emoji" alt="👆" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f446.svg" width="16" height="16"></span>
+      <span>Selecione uma opção e veja qual protocolo usar</span>
+    </div>
+  </div>
+
+  <div class="quiz-grid">
+    {complaints.map((item) => (
+      <div class="quiz-option" data-id={item.id} data-label={item.label} data-text={item.text}>
+        <div class="quiz-check"><span>✓</span></div>
+        <div class="quiz-option-body">
+          <strong>{item.title}</strong>
+          <span>{item.description}</span>
+        </div>
+        <div class="quiz-arrow">→</div>
+      </div>
+    ))}
+  </div>
+
+  <div class="quiz-result" id="quiz-result">
+    <div class="quiz-result-inner">
+      <div class="result-icon">🎯</div>
+      <strong id="result-label">Protocolo indicado</strong>
+      <p id="result-text"></p>
+      <div class="result-cta">Este protocolo está incluso no material ↓</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .quiz-section {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .quiz-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .quiz-icon-bounce {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+    animation: bounce 1.8s ease-in-out infinite;
+  }
+
+  .quiz-icon-bounce .emoji {
+    width: 40px;
+    height: 40px;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .quiz-prompt {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .quiz-cta-animated {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 40px;
+    animation: pulseBorder 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseBorder {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(184,137,42,0); }
+    50% { box-shadow: 0 0 0 6px rgba(184,137,42,0.25); }
+  }
+
+  .cursor-blink {
+    animation: blink 0.9s step-end infinite;
+    display: inline-block;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  .quiz-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .quiz-option {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s, background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    position: relative;
+  }
+
+  .quiz-option:hover {
+    border-color: var(--orange);
+    box-shadow: 0 4px 20px rgba(184,137,42,0.14);
+    transform: translateX(4px);
+  }
+
+  .quiz-option.selected {
+    border-color: var(--orange);
+    background: #FEFAF3;
+    transform: translateX(6px);
+    box-shadow: 0 6px 24px rgba(184,137,42,0.18);
+  }
+
+  .quiz-check {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 13px;
+    color: transparent;
+    transition: all 0.2s;
+    background: #fff;
+  }
+
+  .quiz-option.selected .quiz-check {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+  }
+
+  .quiz-option-body {
+    flex: 1;
+  }
+
+  .quiz-option-body strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .quiz-option-body span {
+    font-size: 13px;
+    color: var(--muted-foreground);
+    line-height: 1.4;
+  }
+
+  .quiz-arrow {
+    font-size: 18px;
+    color: var(--border);
+    transition: color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .quiz-option:hover .quiz-arrow,
+  .quiz-option.selected .quiz-arrow {
+    color: var(--orange);
+    transform: translateX(4px);
+  }
+
+  .quiz-result {
+    display: none;
+    margin: 24px auto 0;
+    max-width: 640px;
+  }
+
+  .quiz-result.show {
+    display: block;
+    animation: slideDown 0.35s ease;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .quiz-result-inner {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 0.75rem;
+    padding: 28px 28px 24px;
+    text-align: center;
+    border-left: 4px solid var(--orange);
+  }
+
+  .result-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .quiz-result-inner strong {
+    color: var(--orange);
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .quiz-result-inner p {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .result-cta {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 40px;
+  }
+
+  @media (min-width: 640px) {
+    .quiz-section {
+      padding: 2.5rem 2rem;
+    }
+  }
+</style>
+
+<script>
+  const quizData: Record<string, { label: string; text: string }> = {
+    autossabotagem: {
+      label: "Protocolo 03 — Autossabotagem e Padrões Repetitivos",
+      text: "Este protocolo mapeia o mecanismo exato da autossabotagem — da superfície (o comportamento) até a raiz (a crença de origem). O cliente sai com uma âncora de interrupção do padrão.",
+    },
+    ansiedade: {
+      label: "Protocolo 05 — Ansiedade e Medo Paralisante",
+      text: "Trabalha a origem do travamento e entrega uma ferramenta de regulação própria. Começa com respiração guiada e desce camada por camada até o medo de raiz.",
+    },
+    abandono: {
+      label: "Protocolo 04 — Relacionamentos e Abandono",
+      text: "Acessa a ferida de abandono que cria o padrão de escolher parceiros indisponíveis. Um dos protocolos mais profundos — nível de intensidade alto.",
+    },
+    financeiro: {
+      label: "Protocolo 02 — Trauma Financeiro e Bloqueio de Prosperidade",
+      text: "Identifica a crença raiz do bloqueio — geralmente formada na infância. O cliente constrói uma nova relação com dinheiro baseada em merecimento, não em escassez.",
+    },
+  };
+
+  document.querySelectorAll(".quiz-option").forEach((option) => {
+    option.addEventListener("click", () => {
+      const key = (option as HTMLElement).dataset.id;
+      if (!key || !quizData[key]) return;
+
+      // Remove selected from all
+      document.querySelectorAll(".quiz-option").forEach((o) => {
+        o.classList.remove("selected");
+      });
+
+      // Add selected to clicked
+      option.classList.add("selected");
+
+      // Update result
+      const data = quizData[key];
+      const resultLabel = document.getElementById("result-label");
+      const resultText = document.getElementById("result-text");
+      const resultBox = document.getElementById("quiz-result");
+
+      if (resultLabel) resultLabel.textContent = data.label;
+      if (resultText) resultText.textContent = data.text;
+      if (resultBox) {
+        resultBox.classList.add("show");
+        resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  });
+</script>

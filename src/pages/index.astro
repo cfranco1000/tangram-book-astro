@@ -3,8 +3,12 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import FeatureItem from "../components/FeatureItem.astro";
+import ImageGallery from "../components/ImageGallery.astro";
+import QuizSection from "../components/QuizSection.astro";
+import TargetAudience from "../components/TargetAudience.astro";
+import Guarantee from "../components/Guarantee.astro";
 
-import bgDesk from "../assets/bg-desk.webp";
+
 import bookImg from "../assets/book.webp";
 import cardsImg from "../assets/cards.webp";
 import kindleImg from "../assets/kindle.webp";
@@ -17,27 +21,27 @@ import parent3 from "../assets/parent3.webp";
 <BaseLayout>
   <main
     class="relative min-h-screen w-full bg-cover bg-top bg-no-repeat"
-    style={{ backgroundImage: `url(${bgDesk.src})` }}
+    style={{ backgroundImage: "url('/bg-desk.webp')" }}
   >
-    <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-white/20 to-white/40" />
+
 
     <!-- Sticky top CTA -->
-    <header class="fixed left-0 right-0 top-0 z-50 bg-cream/95 shadow-[0_10px_30px_-10px_rgba(60,40,20,0.25)] ring-1 ring-black/5 backdrop-blur">
-      <div class="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-8">
-        <p class="font-display text-sm font-bold text-ink sm:text-base">
+    <header class="fixed left-0 right-0 top-0 z-50 bg-cream/95 shadow-[0_10px_30px_-10px_rgba(60,40,20,0.25)] ring-1 ring-black/5 backdrop-blur overflow-hidden">
+      <div class="mx-auto flex max-w-5xl items-center justify-between gap-2 px-3 py-2.5 sm:gap-3 sm:px-8 sm:py-3">
+        <p class="font-display text-xs font-bold text-ink truncate sm:text-base">
           Pronto para usar. Baixe agora{" "}
           <span class="text-orange">→</span>
         </p>
         <a
           href="https://a.co/d/082BQviD"
-          class="inline-flex shrink-0 items-center gap-2 rounded-xl bg-orange px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow transition hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-lg"
+          class="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-orange px-3 py-2 text-xs font-bold uppercase tracking-wide text-white shadow transition hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-lg sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm"
         >
           Quero meu e-book
         </a>
       </div>
     </header>
 
-    <div class="relative mx-auto max-w-5xl px-4 pt-24 pb-10 sm:px-8 sm:pt-28 sm:pb-14">
+    <div class="relative mx-auto max-w-5xl px-4 pt-[58px] pb-10 sm:px-8 sm:pt-[67px] sm:pb-14">
       <!-- HERO -->
       <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur p-6 sm:p-10">
         <div class="grid gap-8 sm:grid-cols-[1.15fr_1fr] sm:items-center">
@@ -128,6 +132,12 @@ import parent3 from "../assets/parent3.webp";
           </div>
         </div>
       </div>
+
+      <!-- IMAGE GALLERY -->
+      <ImageGallery />
+
+      <!-- QUIZ SECTION -->
+      <QuizSection />
 
       <!-- FEATURES -->
       <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur mt-8 overflow-hidden">
@@ -252,6 +262,9 @@ import parent3 from "../assets/parent3.webp";
         </div>
       </div>
 
+      <!-- TARGET AUDIENCE -->
+      <TargetAudience />
+
       <!-- DIGITAL + PURPLE CTA -->
       <div class="mt-8 grid gap-8 sm:grid-cols-2">
         <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur p-6 sm:p-7">
@@ -299,6 +312,9 @@ import parent3 from "../assets/parent3.webp";
           </p>
         </div>
       </div>
+
+      <!-- GUARANTEE -->
+      <Guarantee />
 
       <!-- AUTHOR -->
       <div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur mt-8 overflow-hidden">
