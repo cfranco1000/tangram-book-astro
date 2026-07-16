@@ -131,6 +131,18 @@ const complaints = [
     display: inline-block;
   }
 
+  .cursor-blink .emoji {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (min-width: 640px) {
+    .cursor-blink .emoji {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.2; }
