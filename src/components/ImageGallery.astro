@@ -1,17 +1,19 @@
 ---
 const slides = [
-  { desktop: "/ref/slider-1-desktop.webp", mobile: "/ref/slider-1-mobile.webp", alt: "Página 1 do material" },
-  { desktop: "/ref/slider-2-desktop.webp", mobile: "/ref/slider-2-mobile.webp", alt: "Página 2 do material" },
-  { desktop: "/ref/slider-3-desktop.webp", mobile: "/ref/slider-3-mobile.webp", alt: "Página 3 do material" },
-  { desktop: "/ref/slider-4-desktop.webp", mobile: "/ref/slider-4-mobile.webp", alt: "Página 4 do material" },
+  { desktop: "/ref/slider-1-desktop.webp", mobile: "/ref/slider-1-mobile.webp", alt: "Capa do material de atividades terapêuticas com Tangram" },
+  { desktop: "/ref/slider-2-desktop.webp", mobile: "/ref/slider-2-mobile.webp", alt: "Página com cartas coloridas do material" },
+  { desktop: "/ref/slider-3-desktop.webp", mobile: "/ref/slider-3-mobile.webp", alt: "Página de atividade com figuras geométricas coloridas" },
+  { desktop: "/ref/slider-4-desktop.webp", mobile: "/ref/slider-4-mobile.webp", alt: "Página de atividade com formas de Tangram" },
+  { desktop: "/ref/slider-5-desktop.webp", mobile: "/ref/slider-5-mobile.webp", alt: "Página com modelos coloridos para montar" },
+  { desktop: "/ref/slider-6-desktop.webp", mobile: "/ref/slider-6-mobile.webp", alt: "Página com novas propostas de figuras" },
+  { desktop: "/ref/slider-7-desktop.webp", mobile: "/ref/slider-7-mobile.webp", alt: "Página de atividade prática do material" },
+  { desktop: "/ref/slider-8-desktop.webp", mobile: "/ref/slider-8-mobile.webp", alt: "Página de categorização com cores e formas" },
+  { desktop: "/ref/slider-9-desktop.webp", mobile: "/ref/slider-9-mobile.webp", alt: "Página ilustrada para contação de histórias" },
+  { desktop: "/ref/slider-10-desktop.webp", mobile: "/ref/slider-10-mobile.webp", alt: "Capa do volume de atividades com Tangram" },
 ];
 
-const infographics = [
-  { desktop: "/ref/info-1-desktop.webp", mobile: "/ref/info-1-mobile.webp", alt: "Infográfico 1" },
-  { desktop: "/ref/info-2-desktop.webp", mobile: "/ref/info-2-mobile.webp", alt: "Infográfico 2" },
-  { desktop: "/ref/info-3-desktop.webp", mobile: "/ref/info-3-mobile.webp", alt: "Infográfico 3" },
-  { desktop: "/ref/info-4-desktop.webp", mobile: "/ref/info-4-mobile.webp", alt: "Infográfico 4" },
-];
+const topSlides = slides.slice(0, 5);
+const bottomSlides = slides.slice(5);
 ---
 
 <div class="brand-surface mt-8 overflow-hidden rounded-2xl">
@@ -29,7 +31,7 @@ const infographics = [
   <div class="mt-5 mb-6 overflow-hidden">
     <div class="marquee-group" data-gallery="top">
       <div class="marquee-content">
-        {[...slides, ...slides, ...slides].map((slide, i) => (
+        {[...topSlides, ...topSlides, ...topSlides].map((slide) => (
           <div class="marquee-item">
             <picture>
               <source media="(max-width: 639px)" srcset={slide.mobile} />
@@ -45,11 +47,11 @@ const infographics = [
   <div class="overflow-hidden px-4 pb-6 sm:px-8 sm:pb-8">
     <div class="marquee-group marquee-reverse" data-gallery="bottom">
       <div class="marquee-content">
-        {[...infographics, ...infographics, ...infographics].map((info, i) => (
+        {[...bottomSlides, ...bottomSlides, ...bottomSlides].map((slide) => (
           <div class="marquee-item">
             <picture>
-              <source media="(max-width: 639px)" srcset={info.mobile} />
-              <img src={info.desktop} alt={info.alt} loading="eager" class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(52,52,52,0.18)]" />
+              <source media="(max-width: 639px)" srcset={slide.mobile} />
+              <img src={slide.desktop} alt={slide.alt} loading="eager" class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(52,52,52,0.18)]" />
             </picture>
           </div>
         ))}
