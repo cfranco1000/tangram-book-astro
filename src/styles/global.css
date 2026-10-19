@@ -3,8 +3,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Raleway", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Raleway", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -32,24 +32,24 @@
 }
 
 :root {
-  --background: oklch(0.97 0.015 85);
-  --foreground: oklch(0.2 0.02 260);
-  --ink: oklch(0.22 0.03 250);
-  --card: oklch(0.985 0.012 85);
-  --card-foreground: oklch(0.22 0.03 250);
-  --cream: oklch(0.965 0.02 85);
-  --teal: oklch(0.32 0.06 175);
-  --teal-foreground: oklch(0.98 0.01 85);
-  --orange: oklch(0.68 0.19 45);
-  --purple: oklch(0.42 0.13 305);
-  --purple-foreground: oklch(0.98 0.01 85);
-  --primary: oklch(0.32 0.06 175);
-  --primary-foreground: oklch(0.98 0.01 85);
-  --accent: oklch(0.68 0.19 45);
+  --background: #e8f5f8;
+  --foreground: #343434;
+  --ink: #343434;
+  --card: #ffffff;
+  --card-foreground: #343434;
+  --cream: #f4fbfc;
+  --teal: #4a90e2;
+  --teal-foreground: #ffffff;
+  --orange: #f57c00;
+  --purple: #d32f2f;
+  --purple-foreground: #ffffff;
+  --primary: #4a90e2;
+  --primary-foreground: #ffffff;
+  --accent: #f57c00;
   --accent-foreground: oklch(1 0 0);
-  --muted-foreground: oklch(0.45 0.02 260);
-  --border: oklch(0.88 0.02 85);
-  --ring: oklch(0.68 0.19 45);
+  --muted-foreground: #5d6b70;
+  --border: #b0bec5;
+  --ring: #f57c00;
   --radius: 1rem;
 }
 
@@ -62,5 +62,23 @@
     font-family: var(--font-sans);
     font-weight: 500;
   }
-  h1, h2, h3, .font-display { font-family: var(--font-display); }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+}
+
+.brand-background {
+  background-color: var(--background);
+  background-image:
+  background-image:
+    radial-gradient(circle at 8% 4%, rgba(74, 144, 226, 0.12) 0 5rem, transparent 5.1rem),
+    radial-gradient(circle at 94% 92%, rgba(211, 47, 47, 0.1) 0 8rem, transparent 8.1rem),
+    linear-gradient(135deg, transparent 0 72%, rgba(245, 124, 0, 0.08) 72% 72.3%, transparent 72.3% 100%);
+}
+
+.brand-surface {
+  background: rgba(244, 251, 252, 0.94);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  box-shadow: 0 24px 55px rgba(52, 52, 52, 0.12);
 }

@@ -5,18 +5,17 @@ export interface Props {
   ogImage?: string;
 }
 
-import "@fontsource/montserrat/400.css";
-import "@fontsource/montserrat/400-italic.css";
-import "@fontsource/montserrat/500.css";
-import "@fontsource/montserrat/600.css";
-import "@fontsource/montserrat/700.css";
-import "@fontsource/montserrat/800.css";
-import "@fontsource/montserrat/900.css";
+import "@fontsource/raleway/400.css";
+import "@fontsource/raleway/400-italic.css";
+import "@fontsource/raleway/500.css";
+import "@fontsource/raleway/600.css";
+import "@fontsource/raleway/700.css";
+import "@fontsource/raleway/800.css";
 
 const {
   title = "Atividades Terapêuticas com Tangram — E-book de Renata Soárez",
   description = "E-book prático e terapêutico com atividades de Tangram para terapeutas, professores, pais e cuidadores. Estimule cognição, criatividade e bem-estar.",
-  ogImage = "https://tangram-ebook.vercel.app/og-image.jpg",
+  ogImage = "/og-image.webp",
 } = Astro.props;
 ---
 
@@ -32,7 +31,7 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content="https://tangram-ebook.vercel.app/" />
+    <meta property="og:url" content="/" />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:title" content={title} />

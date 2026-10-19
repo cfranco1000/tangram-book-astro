@@ -28,47 +28,61 @@ const complaints = [
     label: "Protocolo 02 — Trauma Financeiro e Bloqueio de Prosperidade",
     text: "Identifica a crença raiz do bloqueio — geralmente formada na infância. O cliente constrói uma nova relação com dinheiro baseada em merecimento, não em escassez.",
   },
+  {
+    id: "narrativa",
+    title: "Dificuldade com habilidades narrativas",
+    description: "Para quem precisa organizar ideias, criar cenas e contar histórias com mais segurança",
+    label: "Como o material pode ajudar — Habilidades narrativas",
+    text: "Na contação de histórias, as figuras em miniaturas e as cenas podem ser montadas para estimular a criatividade na criação e na narrativa. Comece com uma cena simples, aumente a dificuldade gradualmente e, quando a pessoa já utilizar algumas miniaturas, proponha que a primeira história continue de onde parou.",
+  },
 ];
 ---
 
 <section class="quiz-section">
   <div class="quiz-header">
-    <div class="quiz-icon-bounce"><img draggable="false" role="img" class="emoji" alt="🧠" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f9e0.svg" width="40" height="40"></div>
+    <div class="quiz-icon-bounce" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 7a8 8 0 0 0-7.7 5.8A7 7 0 0 0 9 19.5a7 7 0 0 0 3.7 6.2A7 7 0 0 0 19 36a7 7 0 0 0 5-2.1A7 7 0 0 0 29 36a7 7 0 0 0 6.3-10.3A7 7 0 0 0 39 19.5a7 7 0 0 0-7.3-6.7A8 8 0 0 0 24 7Z" />
+        <path d="M24 7v26M16 18c2 0 4 1 4 3M32 18c-2 0-4 1-4 3M16 29c2 0 4-1 4-3M32 29c-2 0-4-1-4-3" />
+      </svg>
+    </div>
     <h2 class="quiz-prompt">QUAL DESSAS QUEIXAS APARECE MAIS NOS SEUS ATENDIMENTOS?</h2>
     <div class="quiz-cta-animated">
-      <span class="cursor-blink"><img draggable="false" role="img" class="emoji" alt="👆" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f446.svg" width="16" height="16"></span>
-      <span>Selecione uma opção e veja qual protocolo usar</span>
+      <span>Selecione uma queixa e veja como o material pode ajudar</span>
     </div>
   </div>
 
   <div class="quiz-grid">
     {complaints.map((item) => (
-      <div class="quiz-option" data-id={item.id} data-label={item.label} data-text={item.text}>
+      <button type="button" class="quiz-option" data-id={item.id} data-label={item.label} data-text={item.text}>
         <div class="quiz-check"><span>✓</span></div>
         <div class="quiz-option-body">
           <strong>{item.title}</strong>
           <span>{item.description}</span>
         </div>
         <div class="quiz-arrow">→</div>
-      </div>
+      </button>
     ))}
   </div>
 
   <div class="quiz-result" id="quiz-result">
     <div class="quiz-result-inner">
-      <div class="result-icon">🎯</div>
-      <strong id="result-label">Protocolo indicado</strong>
+      <div class="result-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="16" /><circle cx="24" cy="24" r="8" /><circle cx="24" cy="24" r="2" fill="currentColor" />
+        </svg>
+      </div>
+      <strong id="result-label">Como o material pode ajudar</strong>
       <p id="result-text"></p>
-      <div class="result-cta">Este protocolo está incluso no material ↓</div>
+      <div class="result-cta">Veja as possibilidades de uso no material</div>
     </div>
   </div>
 </section>
 
 <style>
   .quiz-section {
-    background: var(--cream);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    background: rgba(244, 251, 252, 0.96);
+    border: 1px solid rgba(74, 144, 226, 0.22);
     border-radius: 1rem;
     padding: 2rem 1.5rem;
     margin-top: 2rem;
@@ -84,15 +98,16 @@ const complaints = [
     justify-content: center;
     align-items: center;
     margin-bottom: 12px;
-    animation: bounce 1.8s ease-in-out infinite;
+    animation: float 3.2s ease-in-out infinite;
+    color: var(--teal);
   }
 
-  .quiz-icon-bounce .emoji {
+  .quiz-icon-bounce svg {
     width: 40px;
     height: 40px;
   }
 
-  @keyframes bounce {
+  @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
   }
@@ -122,30 +137,8 @@ const complaints = [
   }
 
   @keyframes pulseBorder {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(184,137,42,0); }
-    50% { box-shadow: 0 0 0 6px rgba(184,137,42,0.25); }
-  }
-
-  .cursor-blink {
-    animation: blink 0.9s step-end infinite;
-    display: inline-block;
-  }
-
-  .cursor-blink .emoji {
-    width: 40px;
-    height: 40px;
-  }
-
-  @media (min-width: 640px) {
-    .cursor-blink .emoji {
-      width: 16px;
-      height: 16px;
-    }
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(245, 124, 0, 0); }
+    50% { box-shadow: 0 0 0 6px rgba(245, 124, 0, 0.24); }
   }
 
   .quiz-grid {
@@ -157,6 +150,9 @@ const complaints = [
   }
 
   .quiz-option {
+    width: 100%;
+    font-family: inherit;
+    color: inherit;
     background: #fff;
     border: 2px solid var(--border);
     border-radius: 0.75rem;
@@ -172,15 +168,15 @@ const complaints = [
 
   .quiz-option:hover {
     border-color: var(--orange);
-    box-shadow: 0 4px 20px rgba(184,137,42,0.14);
+    box-shadow: 0 4px 20px rgba(74, 144, 226, 0.16);
     transform: translateX(4px);
   }
 
   .quiz-option.selected {
     border-color: var(--orange);
-    background: #FEFAF3;
+    background: #fff8ef;
     transform: translateX(6px);
-    box-shadow: 0 6px 24px rgba(184,137,42,0.18);
+    box-shadow: 0 6px 24px rgba(245, 124, 0, 0.18);
   }
 
   .quiz-check {
@@ -257,12 +253,17 @@ const complaints = [
     border-radius: 0.75rem;
     padding: 28px 28px 24px;
     text-align: center;
-    border-left: 4px solid var(--orange);
   }
 
   .result-icon {
-    font-size: 32px;
+    color: var(--orange);
     margin-bottom: 10px;
+  }
+
+  .result-icon svg {
+    width: 34px;
+    height: 34px;
+    margin: 0 auto;
   }
 
   .quiz-result-inner strong {
@@ -319,6 +320,10 @@ const complaints = [
     financeiro: {
       label: "Protocolo 02 — Trauma Financeiro e Bloqueio de Prosperidade",
       text: "Identifica a crença raiz do bloqueio — geralmente formada na infância. O cliente constrói uma nova relação com dinheiro baseada em merecimento, não em escassez.",
+    },
+    narrativa: {
+      label: "Como o material pode ajudar — Habilidades narrativas",
+      text: "Na contação de histórias, as figuras em miniaturas e as cenas podem ser montadas para estimular a criatividade na criação e na narrativa. Comece com uma cena simples, aumente a dificuldade gradualmente e, quando a pessoa já utilizar algumas miniaturas, proponha que a primeira história continue de onde parou.",
     },
   };
 

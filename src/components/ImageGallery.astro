@@ -1,20 +1,20 @@
 ---
 const slides = [
-  { src: "/ref/slider-1.png", alt: "Pagina 1 do material" },
-  { src: "/ref/slider-2.png", alt: "Pagina 2 do material" },
-  { src: "/ref/slider-3.png", alt: "Pagina 3 do material" },
-  { src: "/ref/slider-4.png", alt: "Pagina 4 do material" },
+  { desktop: "/ref/slider-1-desktop.webp", mobile: "/ref/slider-1-mobile.webp", alt: "Página 1 do material" },
+  { desktop: "/ref/slider-2-desktop.webp", mobile: "/ref/slider-2-mobile.webp", alt: "Página 2 do material" },
+  { desktop: "/ref/slider-3-desktop.webp", mobile: "/ref/slider-3-mobile.webp", alt: "Página 3 do material" },
+  { desktop: "/ref/slider-4-desktop.webp", mobile: "/ref/slider-4-mobile.webp", alt: "Página 4 do material" },
 ];
 
 const infographics = [
-  { src: "/ref/info-1.png", alt: "Infografico 1" },
-  { src: "/ref/info-2.png", alt: "Infografico 2" },
-  { src: "/ref/info-3.png", alt: "Infografico 3" },
-  { src: "/ref/info-4.png", alt: "Infografico 4" },
+  { desktop: "/ref/info-1-desktop.webp", mobile: "/ref/info-1-mobile.webp", alt: "Infográfico 1" },
+  { desktop: "/ref/info-2-desktop.webp", mobile: "/ref/info-2-mobile.webp", alt: "Infográfico 2" },
+  { desktop: "/ref/info-3-desktop.webp", mobile: "/ref/info-3-mobile.webp", alt: "Infográfico 3" },
+  { desktop: "/ref/info-4-desktop.webp", mobile: "/ref/info-4-mobile.webp", alt: "Infográfico 4" },
 ];
 ---
 
-<div class="rounded-2xl bg-cream/95 shadow-[0_20px_60px_-20px_rgba(60,40,20,0.35)] ring-1 ring-black/5 backdrop-blur mt-8 overflow-hidden">
+<div class="brand-surface mt-8 overflow-hidden rounded-2xl">
   <div class="bg-teal px-6 py-4 text-center">
     <h2 class="font-display text-lg font-bold tracking-wide text-teal-foreground sm:text-xl">
       VEJA O MATERIAL POR DENTRO
@@ -31,12 +31,10 @@ const infographics = [
       <div class="marquee-content">
         {[...slides, ...slides, ...slides].map((slide, i) => (
           <div class="marquee-item">
-            <img
-              src={slide.src}
-              alt={slide.alt}
-              loading="eager"
-              class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(60,40,20,0.3)] ring-1 ring-black/5"
-            />
+            <picture>
+              <source media="(max-width: 639px)" srcset={slide.mobile} />
+              <img src={slide.desktop} alt={slide.alt} loading="eager" class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(52,52,52,0.18)]" />
+            </picture>
           </div>
         ))}
       </div>
@@ -49,12 +47,10 @@ const infographics = [
       <div class="marquee-content">
         {[...infographics, ...infographics, ...infographics].map((info, i) => (
           <div class="marquee-item">
-            <img
-              src={info.src}
-              alt={info.alt}
-              loading="eager"
-              class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(60,40,20,0.3)] ring-1 ring-black/5"
-            />
+            <picture>
+              <source media="(max-width: 639px)" srcset={info.mobile} />
+              <img src={info.desktop} alt={info.alt} loading="eager" class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(52,52,52,0.18)]" />
+            </picture>
           </div>
         ))}
       </div>
