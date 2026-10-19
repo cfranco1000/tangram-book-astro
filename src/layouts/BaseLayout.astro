@@ -28,6 +28,9 @@ const {
     <meta name="description" content={description} />
     <meta name="author" content="Renata Soárez" />
 
+    <link rel="preload" as="image" href="/media/book-mobile.webp" media="(max-width: 639px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/media/book-desktop.webp" media="(min-width: 640px)" fetchpriority="high" />
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />

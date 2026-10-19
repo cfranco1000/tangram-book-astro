@@ -35,7 +35,15 @@ const bottomSlides = slides.slice(5);
           <div class="marquee-item">
             <picture>
               <source media="(max-width: 639px)" srcset={slide.mobile} />
-              <img src={slide.desktop} alt={slide.alt} loading="eager" class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(52,52,52,0.18)]" />
+              <img
+                src={slide.desktop}
+                alt={slide.alt}
+                width="1200"
+                height="1698"
+                loading="lazy"
+                decoding="async"
+                class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(52,52,52,0.18)]"
+              />
             </picture>
           </div>
         ))}
@@ -51,7 +59,15 @@ const bottomSlides = slides.slice(5);
           <div class="marquee-item">
             <picture>
               <source media="(max-width: 639px)" srcset={slide.mobile} />
-              <img src={slide.desktop} alt={slide.alt} loading="eager" class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(52,52,52,0.18)]" />
+              <img
+                src={slide.desktop}
+                alt={slide.alt}
+                width="1200"
+                height="1698"
+                loading="lazy"
+                decoding="async"
+                class="w-full rounded-xl shadow-[0_10px_30px_-10px_rgba(52,52,52,0.18)]"
+              />
             </picture>
           </div>
         ))}
@@ -82,7 +98,14 @@ const bottomSlides = slides.slice(5);
 
   .marquee-item {
     flex-shrink: 0;
+    aspect-ratio: 1200 / 1698;
+    overflow: hidden;
     width: 70vw;
+  }
+
+  .marquee-item picture,
+  .marquee-item img {
+    display: block;
   }
 
   @media (min-width: 640px) {
